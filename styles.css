@@ -1,0 +1,85 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+body, ul, li, h1, h2, a {
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+}
+
+body {
+    background-color: #050647
+}
+
+header {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F34674;
+}
+
+header h1 {
+    margin-bottom: 0;
+    color: var(--platinum-color);
+}
+
+header h2 {
+    margin-top: 0;
+    color: #050647;
+}
+
+.media-scroller {
+    --spacer: 1rem;
+    position: relative;
+    gap: var(--size-3);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 33%;
+
+    padding: 0 var(--spacer) var(--spacer);
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+.media-element {
+    /* Get the images consistent */
+    display: grid;
+    grid-template-rows: min-content;
+    gap: var(--size-2);
+    padding: var(--size-3);
+    background: var(--surface-2);
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-3);
+}
+
+.media-element > img {
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background-color: var(--surface-3);
+    border-radius: var(--radius-2);
+}
+
+.media-title {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    color: var(--platinum-color);
+    font-size: 1.5em;
+
+    background-color: #F34674;
+    border-radius: 5px;
+}
+
+.snap-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--spacer, 1rem);
+}
+
+/* Select all direct children of snaps-inline */
+.snap-inline > * {
+    scroll-snap-align: start;
+}
